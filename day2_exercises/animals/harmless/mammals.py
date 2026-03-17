@@ -1,7 +1,7 @@
 
 class Mammals:
     def __init__(self):
-        self.members = ["Tiger", "Elephant", "Wild Cat"]
+        self.members = ["Dog", "Elephant", "Kitty"]
 
     def print_members(self):
         print("printing members of the Mammals class")

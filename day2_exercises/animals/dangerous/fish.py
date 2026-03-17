@@ -1,7 +1,7 @@
 
 class Fish:
     def __init__(self):
-        self.members = ["Tuna", "Jellyfish", "Lionfish"]
+        self.members = ["Shark", "Jellyfish", "Lionfish"]
 
     def print_members(self):
         print("printing members of the Fish class")
