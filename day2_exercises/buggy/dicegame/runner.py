@@ -4,13 +4,14 @@ from .utils import i_just_throw_an_exception
 class GameRunner:
 
     def __init__(self):
-        self.dice = Die.create_dice(5)
-        self.reset()
-
-    def reset(self):
         self.round = 1
         self.wins = 0
         self.loses = 0
+        self.dice = Die.create_dice(5)
+
+    def reset(self):
+        self.dice = Die.create_dice(5)
+        
 
     def answer(self):
         total = 0
@@ -23,9 +24,9 @@ class GameRunner:
         # Probably counts wins or something.
         # Great variable name, 10/10.
         game_round = 0
+        runner = cls()
         while True:
-            runner = cls()
-
+            runner.reset()
             print("Round {}\n".format(runner.round))
 
             for die in runner.dice:
