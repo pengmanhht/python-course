@@ -1,4 +1,3 @@
-
 class Mammals:
     def __init__(self):
         self.members = ["Tiger", "Lion", "Wild Cat"]

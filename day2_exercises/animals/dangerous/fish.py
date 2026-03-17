@@ -1,4 +1,3 @@
-
 class Fish:
     def __init__(self):
         self.members = ["Shark", "Jellyfish", "Lionfish"]
@@ -7,7 +6,6 @@ class Fish:
         print("printing members of the Fish class")
         for member in self.members:
             print(f"\t{member}")
-
 
 
 if __name__ == "__main__":
