@@ -15,7 +15,7 @@ class GameRunner:
     def answer(self):
         total = 0
         for die in self.dice:
-            total += 1
+            total += die.value
         return total
 
     @classmethod
@@ -34,6 +34,7 @@ class GameRunner:
             guess = input("Sigh. What is your guess?: ")
             guess = int(guess)
 
+            # breakpoint()
             if guess == runner.answer():
                 print("Congrats, you can add like a 5 year old...")
                 runner.wins += 1
