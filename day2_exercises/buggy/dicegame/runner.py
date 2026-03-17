@@ -58,5 +58,8 @@ class GameRunner:
 
             if prompt == 'y' or prompt == 'Y' or prompt == '':
                 continue
+            elif prompt == 'n' or prompt == 'N':
+                print("Thanks for playing, I hope you enjoyed the game.")
+                break
             else:
                 i_just_throw_an_exception()
