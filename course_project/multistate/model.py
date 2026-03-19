@@ -48,7 +48,17 @@ class MultistateModel:
         return self.transitions.index((i, j))
     
     def generator_matrix(self, rates: torch.Tensor) -> torch.Tensor:
-        pass
+        """
+        generate the generator matrix Q from the transition rates
+        Q[i, j] = rates[k], which corresponds to self.transitions[k]
+        """
+        n = self.n_states
+        Q = torch.zeros(n, n, dtype=torch.float32)
+        for k, (i, j) in enumerate(self.transitions):
+            Q[i, j] = rates[k]
+        # set diagonal entries so that rows sum to zero
+        Q -= torch.diag(Q.sum(dim=1))
+        return Q
 
 
     def transition_probs(self, rates: torch.Tensor, t: float) -> torch.Tensor:
@@ -68,3 +78,4 @@ if __name__ == "__main__":
     )
     print(model)
     print(model.get_state_index("illness"))
+    print(model.generator_matrix(torch.tensor([0.1, 0.05, 0.2])))
