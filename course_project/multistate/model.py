@@ -62,6 +62,12 @@ class MultistateModel:
 
 
     def transition_probs(self, rates: torch.Tensor, t: float) -> torch.Tensor:
+        """
+        compute the transition probability matrix P(t) from the generator matrix Q and time t
+            P(t) = expm(Q * t)
+        """
+        Q = self.generator_matrix(rates)
+        return torch.linalg.matrix_exp(Q * t)
         pass
 
 
@@ -79,3 +85,4 @@ if __name__ == "__main__":
     print(model)
     print(model.get_state_index("illness"))
     print(model.generator_matrix(torch.tensor([0.1, 0.05, 0.2])))
+    print(model.transition_probs(torch.tensor([0.1, 0.05, 0.2]), t=0.0))
