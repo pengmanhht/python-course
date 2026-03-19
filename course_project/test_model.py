@@ -10,7 +10,7 @@ def test_multistate_model():
     transitions = [(0, 1), (0, 2), (1, 2)]
     absorbing = [2]
     rates = torch.tensor([0.1, 0.05, 0.5])
-    expected_Q = torch.tensor([[-0.15, 0.1, 0.05], [0.0, -0.5, 0.5], [0.0, 0.0, 0.0]])
+    expected_Q = torch.tensor([[-0.15, 0.1, 0.05], [0.0, -0.5, 0.5], [0.0, 0.0, 0.0]], dtype=torch.float32)
     t = 1.0
     expected_P = torch.linalg.matrix_exp(expected_Q * t)
 
