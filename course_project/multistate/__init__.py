@@ -1,1 +1,1 @@
-from model import MultistateModel
+from .model import MultistateModel
